@@ -23,7 +23,7 @@ export default function QRscanner(): JSX.Element {
           //  facingMode='environment'
           onResult={handleScan}
           containerStyle={{ height: 240, width: 320 }}
-          constraints={{ facingMode: "user" }} // constraints={}
+          constraints={{ facingMode: "environment" }} // constraints={}
           // delay={300}
           // onError={handleError}
           // onScan={handleScan}
