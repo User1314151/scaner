@@ -12,6 +12,7 @@
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-qr-reader": "^3.0.0-beta-1",
     "react-web-qr-reader": "^1.0.4"
   },
   "devDependencies": {
