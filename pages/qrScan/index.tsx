@@ -8,7 +8,8 @@ export default function QRscanner(): JSX.Element {
   const [qrscan, setQrscan] = useState("No result");
   const handleScan = (data: any) => {
     if (data) {
-      setQrscan(data);
+      console.log(data.text);
+      setQrscan(data.text);
     }
   };
   const handleError = (err: any) => {
@@ -18,7 +19,7 @@ export default function QRscanner(): JSX.Element {
   return (
     <div>
       <span>QR Scanner</span>
-      <div style={{ marginTop: 30 }}>
+      <div style={{ marginTop: 30, marginBottom: 100 }}>
         <QrReader
           //  facingMode='environment'
           onResult={handleScan}
