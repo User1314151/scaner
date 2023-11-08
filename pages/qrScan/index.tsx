@@ -1,49 +1,37 @@
 import React, { useState } from "react";
+// import {Fab, TextareaAutosize} from '@material-ui/core'
+// import {ArrowBack} from '@material-ui/icons'
+// import { Link } from "react-router-dom";
 import { QrReader } from "react-qr-reader";
 
-// import React from 'react'
-
-export default function Scan() {
-  const [data, setData] = useState("No result");
+export default function QRscanner(): JSX.Element {
+  const [qrscan, setQrscan] = useState("No result");
+  const handleScan = (data: any) => {
+    if (data) {
+      setQrscan(data);
+    }
+  };
+  const handleError = (err: any) => {
+    console.error(err);
+  };
 
   return (
-    <>
-      <QrReader
-        // constraints={}
-        style={{ width: "200px", heigth: "100px" }}
-        onResult={(result, error) => {
-          if (!!result) {
-            setData(result?.text);
-          }
-
-          if (!!error) {
-            console.info(error);
-          }
-        }}
-      />
-      <p>{data}</p>
-    </>
+    <div>
+      <span>QR Scanner</span>
+      <div style={{ marginTop: 30 }}>
+        <QrReader
+          onResult={handleScan}
+          containerStyle={{ height: 240, width: 320 }}
+          constraints={{ height: 240, width: 320 }} // constraints={}
+          // delay={300}
+          // onError={handleError}
+          // onScan={handleScan}
+          // style={{ height: 240, width: 320 }}
+        />
+      </div>
+      <div>{qrscan}</div>
+    </div>
   );
 }
 
-// const Test = () => {
-//   const [data, setData] = useState("No result");
-
-//   return (
-//     <>
-//       <QrReader
-//         onResult={(result, error) => {
-//           if (!!result) {
-//             setData(result?.text);
-//           }
-
-//           if (!!error) {
-//             console.info(error);
-//           }
-//         }}
-//         style={{ width: "100%" }}
-//       />
-//       <p>{data}</p>
-//     </>
-//   );
-// };
+// export default QRscanner;
