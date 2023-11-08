@@ -20,9 +20,10 @@ export default function QRscanner(): JSX.Element {
       <span>QR Scanner</span>
       <div style={{ marginTop: 30 }}>
         <QrReader
+          //  facingMode='environment'
           onResult={handleScan}
           containerStyle={{ height: 240, width: 320 }}
-          constraints={{ height: 240, width: 320 }} // constraints={}
+          constraints={{ facingMode: "user" }} // constraints={}
           // delay={300}
           // onError={handleError}
           // onScan={handleScan}
